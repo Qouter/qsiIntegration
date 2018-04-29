@@ -19,7 +19,7 @@ public class Main {
 	public static void main(String[] args) {
 		Main p = new Main();
 		//p.openURL();
-		System.out.println("Hello");
+		//System.out.println("Hello");
 
 	}
 	
