@@ -110,7 +110,7 @@ public class Main {
  
             ftpClient.enterLocalPassiveMode();
             ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
-            String remoteFilePath = "/public_html/Exercici 61/test.jar";
+            String remoteFilePath = "/public_html/contInte/qsiIntegration.jar";
             String worDir = System.getProperty("user.dir");
             File localfile = new File(worDir+"/temp/test.jar");
             OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(localfile));
