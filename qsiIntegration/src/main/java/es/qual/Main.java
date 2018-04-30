@@ -37,7 +37,12 @@ public class Main {
 		//System.out.println(worDir);
 		//p.preExecution();
 		//p.hasCorParentFolder();
-		System.out.println(Boolean.toString(p.hasCorParentFolder()));
+		if(p.hasCorParentFolder()) {
+			p.openURL("true");
+		}
+		else {
+			p.openURL("false");
+		}
 	}
 	
 	public void test() throws IOException {
