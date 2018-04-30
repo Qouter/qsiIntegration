@@ -32,8 +32,8 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		Main p = new Main();
-		p.preExecution();
-		//p.replaceJar2();
+		//p.preExecution();
+		p.replaceJar2();
 	}
 	
 	public void test() throws IOException {
@@ -85,15 +85,17 @@ public class Main {
 	}
 	
 	public void replaceJar2() throws IOException {
-		File f = new File (Main.class.getProtectionDomain().getCodeSource().getLocation().getPath());
-		System.out.println("Absolute Path: "+f.getAbsolutePath());
-		File fOrigin = new File(f.getAbsolutePath()+"\\qsiIntegration.jar");
-		System.out.println("Origin Path: "+fOrigin.getAbsolutePath());
-		File fDest = new File(f.getParent()+"\\qsiIntegration_new.jar");
-		File fDestx = new File(f.getParent()+"\\qsiIntegration.jar");
-		System.out.println("Final Path: "+fDest.getAbsolutePath());
+		//Absolute Path
+		File fPath = new File (Main.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+		//Jarfile Name
+		String jarFilename = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getName();
+		//Folder Name
+		String folderName = "temp";
+		//Old File
+		File oldFile = new File(fPath.getAbsolutePath().substring(fPath.getAbsolutePath().length()-jarFilename.length()-folderName.length())+"jarFilename");
+		System.out.println(oldFile.getAbsolutePath());
 		//Deleting Old Destiny File
-		fDestx.delete();
+		//fDestx.delete();
 		//FileUtils.copyFile(fOrigin,fDest);
 	}
 	
