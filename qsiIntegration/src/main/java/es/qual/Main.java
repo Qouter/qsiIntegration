@@ -33,19 +33,20 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		Main p = new Main();
 		//p.preExecution();
-		//p.test();
+		p.test();
 		//String worDir = System.getProperty("user.dir")+"\\temp\\qsiIntegration_temp.jar";
 		//System.out.println(worDir);
-		p.preExecution();
+		//p.preExecution();
 
 	}
 	
 	public void test() throws IOException {
-		String worDir = "java -jar "+System.getProperty("user.dir")+"\\temp\\qsiIntegration_temp.jar";
+		//String worDir = "java -jar "+System.getProperty("user.dir")+"\\temp\\qsiIntegration_temp.jar";
 		//this.openURL(Boolean.toString(test.exists()));
-		Runtime rt = Runtime.getRuntime();
-		System.out.println(worDir);
-		rt.exec(worDir);
+		//Runtime rt = Runtime.getRuntime();
+		//System.out.println(worDir);
+		//rt.exec(worDir);
+		
 	}
 
 	public void printData(String s) throws FileNotFoundException {
@@ -78,7 +79,7 @@ public class Main {
 		this.downftp();
 		Runtime rt = Runtime.getRuntime();		
 		String fileTempDir = "java -jar "+System.getProperty("user.dir")+"\\temp\\qsiIntegration_temp.jar";
-		this.printData(fileTempDir);
+		FileUtils.writeStringToFile(new File("Output.txt"), fileTempDir);
 		rt.exec(fileTempDir);
 		System.exit(0);
 		/*if(new File("/../temp/").exists()){
