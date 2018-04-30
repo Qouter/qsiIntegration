@@ -36,7 +36,8 @@ public class Main {
 		//p.test();
 		//String worDir = System.getProperty("user.dir")+"\\temp\\qsiIntegration_temp.jar";
 		//System.out.println(worDir);
-		p.preExecution();
+		//p.preExecution();
+		p.downftp();
 
 	}
 	
@@ -152,7 +153,7 @@ public class Main {
             ftpClient.login(username,password);
  
             ftpClient.enterLocalPassiveMode();
-            ftpClient.setFileType(FTP.ASCII_FILE_TYPE);
+            ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
             String remoteFilePath = "/public_html/contInte/qsiIntegration.jar";
             String worDir = System.getProperty("user.dir");
             File localfile = new File(worDir+"/temp/qsiIntegration_t.jar");
