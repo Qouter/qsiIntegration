@@ -59,6 +59,7 @@ public class Main {
 		Runtime rt = Runtime.getRuntime();
 		String worDir = System.getProperty("user.dir");
 		rt.exec("java -jar "+worDir+"/temp/qsiIntegration_temp.jar");
+		System.exit(0);
 		/*if(new File("/../temp/").exists()){
 			try {
 				Runtime rt = Runtime.getRuntime();
