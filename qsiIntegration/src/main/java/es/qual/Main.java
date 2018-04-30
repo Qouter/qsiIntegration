@@ -102,7 +102,7 @@ public class Main {
 	
 	public boolean hasCorParentFolder() {
 		File f = new File(System.getProperty("user.dir"));
-		System.out.println(f.getParent());
+		System.out.println(f.getName());
 		if(f.getParent().equals("temp")) {
 			return true;
 		}
