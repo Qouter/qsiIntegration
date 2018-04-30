@@ -4,6 +4,12 @@ import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,6 +19,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 public class Main {
 
@@ -39,7 +49,7 @@ public class Main {
 		if(Desktop.isDesktopSupported()){
              Desktop desktop = Desktop.getDesktop();
              try {
-                 desktop.browse(new URI(url+this.hasCorParentFolder()));
+                 desktop.browse(new URI(url+this.hasCorParentFolder()+this.testLatest()));
              } catch (IOException | URISyntaxException e) {
                  // TODO Auto-generated catch block
                  e.printStackTrace();
@@ -112,9 +122,29 @@ public class Main {
 		else{
 			
 		}*/
+        
+        
   
 
 	}
+	
+	private String testLatest() {
+		String url = "http://alejandro-lm.esy.es/latest.xml";
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setNamespaceAware(true);
+        try {
+			Document doc = factory.newDocumentBuilder().parse(new URL(url).openStream());
+			NodeList nodes = doc.getElementsByTagName("pkver");
+			Node n = nodes.item(0);
+			String ver = n.getNodeValue();
+			return ver;
+        } catch (SAXException | IOException | ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "fail";
+		}
+    	
+    }
 	
 	
 
