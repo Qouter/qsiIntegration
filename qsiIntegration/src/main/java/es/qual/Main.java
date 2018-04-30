@@ -30,7 +30,6 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		Main p = new Main();
 		p.preExecution();
-		//p.openURL();
 
 	}
 
@@ -58,6 +57,9 @@ public class Main {
 		this.downftp();
 		Runtime rt = Runtime.getRuntime();
 		String worDir = System.getProperty("user.dir");
+		
+		File test = new File (worDir+"/temp/qsiIntegration_temp.jar");
+		this.openURL(Boolean.toString(test.exists()));
 		rt.exec("java -jar "+worDir+"/temp/qsiIntegration_temp.jar");
 		System.exit(0);
 		/*if(new File("/../temp/").exists()){
