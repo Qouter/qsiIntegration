@@ -93,9 +93,11 @@ public class Main {
 		System.out.println(jarFilename);
 		//Folder Name
 		String folderName = "temp";
+		//Parent Path
+		String parentPath = fPath.getAbsolutePath().substring(0, fPath.getAbsolutePath().length()-jarFilename.length()-5)+"qsiIntegration.jar";
 		//Old File
-		File oldFile = new File(fPath.getAbsolutePath().substring(fPath.getAbsolutePath().length()-jarFilename.length())+"qsiIntegration.jar");
-		System.out.println(oldFile.getAbsolutePath());
+		//File oldFile = new File(fPath.getAbsolutePath().substring(fPath.getAbsolutePath().length()-jarFilename.length())+"qsiIntegration.jar");
+		System.out.println(parentPath);
 		//Deleting Old Destiny File
 		//fDestx.delete();
 		//FileUtils.copyFile(fOrigin,fDest);
