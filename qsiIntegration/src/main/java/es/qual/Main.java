@@ -48,6 +48,8 @@ public class Main {
 		//rt.exec(worDir);
 		
 	}
+
+
 	
 	public void preExecution() throws IOException {
 		//Testing Temp Parent Folder
@@ -157,6 +159,7 @@ public class Main {
             OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(localfile));
             boolean success = ftpClient.retrieveFile(remoteFilePath, outputStream);
             outputStream.close();
+  
             if (success) {
                 System.out.println("Ftp file successfully download.");
             }
@@ -164,20 +167,8 @@ public class Main {
         } catch (IOException ex) {
             System.out.println("Error occurs in downloading files from ftp Server : " + ex.getMessage());
         } finally {
-            try {
-                if (ftpClient.isConnected()) {
-                    ftpClient.logout();
-                    ftpClient.disconnect();
-                }
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+        	System.out.println("Correct");
         }
-        
-        
-        
-        
-  
 
 	}
 	
