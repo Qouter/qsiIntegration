@@ -42,7 +42,7 @@ public class Main {
 		//jarFile name
 		String jarFilename = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getName();
 		System.out.println(jarFilename);
-		System.out.println(fullPath.substring(fullPath.length()-jarFilename.length()-5, fullPath.length()-jarFilename.length()));
+		System.out.println(fullPath.substring(fullPath.length()-jarFilename.length()-5, fullPath.length()-jarFilename.length()-1));
 		
 
 	}
