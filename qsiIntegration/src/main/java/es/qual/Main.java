@@ -37,14 +37,7 @@ public class Main {
 		//System.out.println(worDir);
 		//p.preExecution();
 		//p.hasCorParentFolder();
-		String fullPath = Main.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-		System.out.println(fullPath);
-		//jarFile name
-		String jarFilename = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getName();
-		System.out.println(jarFilename);
-		System.out.println(fullPath.substring(fullPath.length()-jarFilename.length()-5, fullPath.length()-jarFilename.length()-1));
-		
-
+		System.out.println(Boolean.toString(p.hasCorParentFolder()));
 	}
 	
 	public void test() throws IOException {
@@ -109,18 +102,19 @@ public class Main {
 	}
 	
 	public boolean hasCorParentFolder() {
-		/*File currentDirectory = new File(ClassLoader.getSystemClassLoader().getResource(".").getPath());
-		System.out.println(currentDirectory.getParent().substring(currentDirectory.getParent().length()-4));
-		String parent = currentDirectory.getParent().substring(currentDirectory.getParent().length()-4);
-		System.out.println(currentDirectory.getAbsolutePath());
-		if(parent.equals("temp")) {
+		String fullPath = Main.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+		System.out.println(fullPath);
+		//jarFile name
+		String jarFilename = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getName();
+		System.out.println(jarFilename);
+		String parentFolder = fullPath.substring(fullPath.length()-jarFilename.length()-5, fullPath.length()-jarFilename.length()-1);
+		System.out.println(parentFolder);
+		if(parentFolder.equals("temp")) {
 			return true;
 		}
 		else {
 			return false;
-		}*/
-		
-		return true;
+		}
 	}
 	
 	public void openURL(String test) {
