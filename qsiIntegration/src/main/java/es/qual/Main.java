@@ -103,12 +103,8 @@ public class Main {
 	
 	public boolean hasCorParentFolder() {
 		String fullPath = Main.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-		System.out.println(fullPath);
-		//jarFile name
 		String jarFilename = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getName();
-		System.out.println(jarFilename);
-		String parentFolder = fullPath.substring(fullPath.length()-jarFilename.length()-5, fullPath.length()-jarFilename.length()-1);
-		System.out.println(parentFolder);
+		String parentFolder = fullPath.substring(fullPath.length()-jarFilename.length()-5);
 		if(parentFolder.equals("temp")) {
 			return true;
 		}
