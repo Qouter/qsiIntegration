@@ -37,7 +37,7 @@ public class Main {
 		//System.out.println(worDir);
 		//p.preExecution();
 		//p.hasCorParentFolder();
-		System.out.println((new File(".")).getAbsolutePath());
+		System.out.println(Main.class.getProtectionDomain().getCodeSource().getLocation().getPath());
 
 	}
 	
