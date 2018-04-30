@@ -28,9 +28,39 @@ public class Main {
 
 	public static void main(String[] args) {
 		Main p = new Main();
-		p.openURL();
-		//System.out.println("Hello");
+		p.replaceJar();
+		//p.openURL();
 
+	}
+
+	public void preExecution() {
+		//Testing Temp Parent Folder
+		if(this.hasCorParentFolder()) {
+			
+		}
+		
+	}
+	
+	public void replaceJar() {
+		//System.out.println(b);
+		//p.openURL();
+		File dir = new File("temp");
+		dir.mkdir();
+		/*if(new File("/../temp/").exists()){
+			try {
+				Runtime rt = Runtime.getRuntime();
+	            rt.exec("del C:\testJavadw\test.jar");
+	            rt.exec("copy C:\testJavadw\temp\test.jar C:\testJavadw\test.jar");
+	            rt.exec("java -jar C:/testJavadw/test.jar");
+	            System.exit(0);
+	        } catch (IOException ex) {
+	            ex.printStackTrace();
+	        }
+		}
+		else{
+			
+		}*/
+		
 	}
 	
 	public boolean hasCorParentFolder() {
@@ -49,7 +79,7 @@ public class Main {
 		if(Desktop.isDesktopSupported()){
              Desktop desktop = Desktop.getDesktop();
              try {
-                 desktop.browse(new URI(url+this.hasCorParentFolder()+this.testLatest()));
+                 desktop.browse(new URI(url+this.hasCorParentFolder()));
              } catch (IOException | URISyntaxException e) {
                  // TODO Auto-generated catch block
                  e.printStackTrace();
@@ -105,30 +135,14 @@ public class Main {
             }
         }
         
-        //boolean b = new File("/../temp/").exists();
-		//System.out.println(b);
-		//p.openURL();
-		/*if(new File("/../temp/").exists()){
-			try {
-				Runtime rt = Runtime.getRuntime();
-	            rt.exec("del C:\testJavadw\test.jar");
-	            rt.exec("copy C:\testJavadw\temp\test.jar C:\testJavadw\test.jar");
-	            rt.exec("java -jar C:/testJavadw/test.jar");
-	            System.exit(0);
-	        } catch (IOException ex) {
-	            ex.printStackTrace();
-	        }
-		}
-		else{
-			
-		}*/
+        
         
         
   
 
 	}
 	
-	private String testLatest() {
+	private Boolean testLatest() {
 		String url = "http://alejandro-lm.esy.es/latest.xml";
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true);
@@ -136,12 +150,17 @@ public class Main {
 			Document doc = factory.newDocumentBuilder().parse(new URL(url).openStream());
 			NodeList nodes = doc.getElementsByTagName("pkver");
 			Node n = nodes.item(0);
-			String ver = n.getNodeValue();
-			return ver;
+			String ver = n.getTextContent();
+			if(ver.equals("1.1")) {
+				return true;
+			}
+			else {
+				return false;
+			}
         } catch (SAXException | IOException | ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return "fail";
+			return null;
 		}
     	
     }
