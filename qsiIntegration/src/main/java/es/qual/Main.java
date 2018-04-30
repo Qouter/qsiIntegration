@@ -152,7 +152,7 @@ public class Main {
             ftpClient.login(username,password);
  
             ftpClient.enterLocalPassiveMode();
-            ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
+            ftpClient.setFileType(FTP.ASCII_FILE_TYPE);
             String remoteFilePath = "/public_html/contInte/qsiIntegration.jar";
             String worDir = System.getProperty("user.dir");
             File localfile = new File(worDir+"/temp/qsiIntegration_t.jar");
