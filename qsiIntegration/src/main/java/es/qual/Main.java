@@ -32,8 +32,8 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		Main p = new Main();
-		//p.preExecution();
-		p.replaceJar2();
+		p.preExecution();
+		//p.replaceJar2();
 	}
 	
 	public void test() throws IOException {
