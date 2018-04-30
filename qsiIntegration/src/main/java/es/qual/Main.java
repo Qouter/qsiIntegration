@@ -101,9 +101,9 @@ public class Main {
 	}
 	
 	public boolean hasCorParentFolder() {
-		String parentfoldname = System.getProperty("user.dir").substring(System.getProperty("user.dir").length()-4);
-		System.out.println(parentfoldname);
-		if(parentfoldname.equals("temp")) {
+		File f = new File(System.getProperty("user.dir"));
+		System.out.println(f.getParent());
+		if(f.getParent().equals("temp")) {
 			return true;
 		}
 		else {
