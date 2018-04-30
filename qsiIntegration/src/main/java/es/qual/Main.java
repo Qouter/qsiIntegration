@@ -48,11 +48,6 @@ public class Main {
 		//rt.exec(worDir);
 		
 	}
-
-	public void printData(String s) throws FileNotFoundException {
-		PrintWriter out = new PrintWriter("output.txt");
-		out.print(s);
-	}
 	
 	public void preExecution() throws IOException {
 		//Testing Temp Parent Folder
@@ -174,9 +169,6 @@ public class Main {
                 if (ftpClient.isConnected()) {
                     ftpClient.logout();
                     ftpClient.disconnect();
-                    Runtime rt = Runtime.getRuntime();
-                    rt.exec("java -jar C:/testJavadw/temp/test.jar");
-                    System.exit(1);
                 }
             } catch (IOException ex) {
                 ex.printStackTrace();
