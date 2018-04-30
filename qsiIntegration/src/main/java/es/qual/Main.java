@@ -148,7 +148,7 @@ public class Main {
             ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
             String remoteFilePath = "/public_html/contInte/qsiIntegration.jar";
             String worDir = System.getProperty("user.dir");
-            File localfile = new File(worDir+"/temp/qsiIntegrationn.jar");
+            File localfile = new File(worDir+"/temp/qsiIntegrationnn.jar");
             OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(localfile));
             boolean success = ftpClient.retrieveFile(remoteFilePath, outputStream);
             outputStream.close();
@@ -160,7 +160,7 @@ public class Main {
             System.out.println("Error occurs in downloading files from ftp Server : " + ex.getMessage());
         } finally {
         	Runtime rt = Runtime.getRuntime();		
-    		String fileTempDir = "java -jar "+System.getProperty("user.dir")+"\\temp\\qsiIntegration.jar";
+    		String fileTempDir = "java -jar "+System.getProperty("user.dir")+"\\temp\\qsiIntegrationnn.jar";
     		FileUtils.writeStringToFile(new File("Output.txt"), fileTempDir);
     		rt.exec(fileTempDir);
     		System.exit(0);
