@@ -168,8 +168,7 @@ public class Main {
         	Runtime rt = Runtime.getRuntime();		
     		String fileTempDir = "java -jar "+System.getProperty("user.dir")+"\\temp\\qsiIntegrationnn.jar";
     		FileUtils.writeStringToFile(new File("Output.txt"), fileTempDir);
-    		ProcessBuilder builder = new ProcessBuilder(fileTempDir);		    
-    		Process process = builder.start();
+    		rt.exec(fileTempDir);
     		System.exit(0);
         }
         
