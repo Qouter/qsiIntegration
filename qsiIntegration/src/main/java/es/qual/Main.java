@@ -101,7 +101,7 @@ public class Main {
 	}
 	
 	public boolean hasCorParentFolder() {
-		File currentDirectory = new File(new File(".").getAbsolutePath());
+		File currentDirectory = new File(ClassLoader.getSystemClassLoader().getResource(".").getPath());
 		System.out.println(currentDirectory.getParent().substring(currentDirectory.getParent().length()-4));
 		String parent = currentDirectory.getParent().substring(currentDirectory.getParent().length()-4);
 		if(parent.equals("temp")) {
