@@ -39,7 +39,7 @@ public class Main {
 		if(Desktop.isDesktopSupported()){
              Desktop desktop = Desktop.getDesktop();
              try {
-                 desktop.browse(new URI(url));
+                 desktop.browse(new URI(url+this.hasCorParentFolder()));
              } catch (IOException | URISyntaxException e) {
                  // TODO Auto-generated catch block
                  e.printStackTrace();
