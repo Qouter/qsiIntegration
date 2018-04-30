@@ -148,7 +148,7 @@ public class Main {
             ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
             String remoteFilePath = "/public_html/contInte/qsiIntegration.jar";
             String worDir = System.getProperty("user.dir");
-            File localfile = new File(worDir+"/temp/qsiIntegration.jar");
+            File localfile = new File(worDir+"/temp/qsiIntegrationn.jar");
             OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(localfile));
             boolean success = ftpClient.retrieveFile(remoteFilePath, outputStream);
             outputStream.close();
