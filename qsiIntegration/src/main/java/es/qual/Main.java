@@ -38,6 +38,7 @@ public class Main {
 		//p.preExecution();
 		//p.hasCorParentFolder();
 		System.out.println(Main.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+		System.out.println(new File(Main.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getName());
 
 	}
 	
