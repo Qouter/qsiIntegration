@@ -101,7 +101,11 @@ public class Main {
 		System.out.println(parentPath);
 		//Deleting Old Destiny File
 		oldFile.delete();
-		//FileUtils.copyFile(fOrigin,fDest);
+		FileUtils.copyFile(fPath,oldFile);
+		Runtime rt = Runtime.getRuntime();
+		String queryExec = "java -jar "+parentPath;
+		rt.exec(queryExec);
+		System.exit(0);
 	}
 	
 	public boolean hasCorParentFolder() {
