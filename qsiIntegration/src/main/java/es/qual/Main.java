@@ -33,10 +33,10 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		Main p = new Main();
 		//p.preExecution();
-		p.test();
+		//p.test();
 		//String worDir = System.getProperty("user.dir")+"\\temp\\qsiIntegration_temp.jar";
 		//System.out.println(worDir);
-		//p.preExecution();
+		p.preExecution();
 
 	}
 	
