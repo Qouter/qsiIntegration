@@ -38,11 +38,11 @@ public class Main {
 		//p.preExecution();
 		//p.hasCorParentFolder();
 		String fullPath = Main.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-		System.out.println(Main.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+		System.out.println(fullPath);
 		//jarFile name
 		String jarFilename = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getName();
-		System.out.println(new File(Main.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getName());
-		System.out.println(fullPath.substring(jarFilename.length()-5, jarFilename.length()));
+		System.out.println(jarFilename);
+		System.out.println(fullPath.substring(fullPath.length()-jarFilename.length()-5, fullPath.length()-jarFilename.length()));
 		
 
 	}
