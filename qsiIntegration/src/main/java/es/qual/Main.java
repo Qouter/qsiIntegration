@@ -87,12 +87,14 @@ public class Main {
 	public void replaceJar2() throws IOException {
 		//Absolute Path
 		File fPath = new File (Main.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+		System.out.println(fPath.getAbsolutePath());
 		//Jarfile Name
 		String jarFilename = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getName();
+		System.out.println(jarFilename);
 		//Folder Name
 		String folderName = "temp";
 		//Old File
-		File oldFile = new File(fPath.getAbsolutePath().substring(fPath.getAbsolutePath().length()-jarFilename.length()-folderName.length())+"jarFilename");
+		File oldFile = new File(fPath.getAbsolutePath().substring(fPath.getAbsolutePath().length()-jarFilename.length())+"qsiIntegration.jar");
 		System.out.println(oldFile.getAbsolutePath());
 		//Deleting Old Destiny File
 		//fDestx.delete();
