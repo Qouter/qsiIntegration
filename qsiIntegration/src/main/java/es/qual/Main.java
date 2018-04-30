@@ -18,7 +18,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		Main p = new Main();
-		//p.openURL();
+		p.openURL();
 		//System.out.println("Hello");
 
 	}
@@ -35,11 +35,11 @@ public class Main {
 	
 	public void openURL() {
 		
-    	String url = "https://www.google.es/search?q=";
+    	String url = "https://www.google.es/search?q=hello";
 		if(Desktop.isDesktopSupported()){
              Desktop desktop = Desktop.getDesktop();
              try {
-                 desktop.browse(new URI(url+hasCorParentFolder()));
+                 desktop.browse(new URI(url));
              } catch (IOException | URISyntaxException e) {
                  // TODO Auto-generated catch block
                  e.printStackTrace();
