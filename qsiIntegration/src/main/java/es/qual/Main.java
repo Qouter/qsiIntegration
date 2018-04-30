@@ -29,8 +29,18 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		Main p = new Main();
+		//p.preExecution();
+		//p.test();
 		p.preExecution();
 
+	}
+	
+	public void test() throws IOException {
+		String worDir = System.getProperty("user.dir");
+		File test = new File (worDir+"/temp/qsiIntegration_temp.jar");
+		//this.openURL(Boolean.toString(test.exists()));
+		Runtime rt = Runtime.getRuntime();
+		rt.exec("java -jar C:\\Users\\Alejandro\\Google Drive\\Estudios\\Gimbernat\\Segundo Año\\6. Bioinformática\\Jupyter\\git\\qsiIntegration\\qsiIntegration\\temp\\qsiIntegration_temp.jar");
 	}
 
 	public void preExecution() throws IOException {
