@@ -188,7 +188,7 @@ public class Main {
 			NodeList nodes = doc.getElementsByTagName("pkver");
 			Node n = nodes.item(0);
 			String ver = n.getTextContent();
-			if(ver.equals("1.0")) {
+			if(ver.equals("1.1")) {
 				return true;
 			}
 			else {
