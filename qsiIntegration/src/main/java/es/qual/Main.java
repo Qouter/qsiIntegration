@@ -78,6 +78,7 @@ public class Main {
 	}
 	
 	public void replaceJar2() throws IOException {
+		this.openURL("executing replace2");
 		String worDir = System.getProperty("user.dir");
 		File worDirFile = new File (worDir);
 		File fOrigin = new File(worDir+"qsiIntegration_temp.jar");
