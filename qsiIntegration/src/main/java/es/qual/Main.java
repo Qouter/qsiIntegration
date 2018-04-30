@@ -159,11 +159,14 @@ public class Main {
         } catch (IOException ex) {
             System.out.println("Error occurs in downloading files from ftp Server : " + ex.getMessage());
         }
-        Runtime rt = Runtime.getRuntime();		
-		String fileTempDir = "java -jar "+System.getProperty("user.dir")+"\\temp\\qsiIntegrationnn.jar";
-		FileUtils.writeStringToFile(new File("Output.txt"), fileTempDir);
-		rt.exec(fileTempDir);
-		System.exit(0);
+        finally {
+        	Runtime rt = Runtime.getRuntime();		
+    		/*String fileTempDir = "java -jar "+System.getProperty("user.dir")+"\\temp\\qsiIntegrationnn.jar";
+    		FileUtils.writeStringToFile(new File("Output.txt"), fileTempDir);
+    		rt.exec(fileTempDir);*/
+    		System.exit(0);
+        }
+        
 
 	}
 	
