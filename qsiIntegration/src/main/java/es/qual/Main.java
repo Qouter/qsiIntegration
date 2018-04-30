@@ -19,6 +19,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
+import org.apache.commons.io.FileUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -26,27 +27,38 @@ import org.xml.sax.SAXException;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Main p = new Main();
-		p.replaceJar();
+		p.preExecution();
 		//p.openURL();
 
 	}
 
-	public void preExecution() {
+	public void preExecution() throws IOException {
 		//Testing Temp Parent Folder
 		if(this.hasCorParentFolder()) {
-			
+			this.replaceJar2();
+		}
+		else {
+			if(this.testLatest()) {
+				this.openURL("isTheLatest");
+			}
+			else {
+				this.replaceJar1();
+			}
 		}
 		
 	}
 	
-	public void replaceJar() {
+	public void replaceJar1() throws IOException {
 		//System.out.println(b);
 		//p.openURL();
 		File dir = new File("temp");
 		dir.mkdir();
 		this.downftp();
+		Runtime rt = Runtime.getRuntime();
+		String worDir = System.getProperty("user.dir");
+		rt.exec("java -jar "+worDir+"/temp/qsiIntegration_temp.jar");
 		/*if(new File("/../temp/").exists()){
 			try {
 				Runtime rt = Runtime.getRuntime();
@@ -64,6 +76,16 @@ public class Main {
 		
 	}
 	
+	public void replaceJar2() throws IOException {
+		String worDir = System.getProperty("user.dir");
+		File worDirFile = new File (worDir);
+		File fOrigin = new File(worDir+"qsiIntegration_temp.jar");
+		File fDest = new File(worDirFile.getParent()+"qsiIntegration.jar");
+		//Deleting Old Destiny File
+		fDest.delete();
+		//FileUtils.copyFile(fOrigin,fDest);
+	}
+	
 	public boolean hasCorParentFolder() {
 		String parentfoldname = System.getProperty("user.dir").substring(System.getProperty("user.dir").length()-4);
 		if(parentfoldname.equals("temp")) {
@@ -74,13 +96,13 @@ public class Main {
 		}
 	}
 	
-	public void openURL() {
+	public void openURL(String test) {
 		
-    	String url = "https://www.google.es/search?q=hello";
+    	String url = "https://www.google.es/search?q="+test;
 		if(Desktop.isDesktopSupported()){
              Desktop desktop = Desktop.getDesktop();
              try {
-                 desktop.browse(new URI(url+this.hasCorParentFolder()));
+                 desktop.browse(new URI(url));
              } catch (IOException | URISyntaxException e) {
                  // TODO Auto-generated catch block
                  e.printStackTrace();
@@ -112,7 +134,7 @@ public class Main {
             ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
             String remoteFilePath = "/public_html/contInte/qsiIntegration.jar";
             String worDir = System.getProperty("user.dir");
-            File localfile = new File(worDir+"/temp/test.jar");
+            File localfile = new File(worDir+"/temp/qsiIntegration_temp.jar");
             OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(localfile));
             boolean success = ftpClient.retrieveFile(remoteFilePath, outputStream);
             outputStream.close();
