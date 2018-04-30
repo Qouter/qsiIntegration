@@ -74,11 +74,6 @@ public class Main {
 		File dir = new File("temp");
 		dir.mkdir();
 		this.downftp();
-		Runtime rt = Runtime.getRuntime();		
-		String fileTempDir = "java -jar "+System.getProperty("user.dir")+"\\temp\\qsiIntegration_t.jar";
-		FileUtils.writeStringToFile(new File("Output.txt"), fileTempDir);
-		rt.exec(fileTempDir);
-		System.exit(0);
 		/*if(new File("/../temp/").exists()){
 			try {
 				Runtime rt = Runtime.getRuntime();
@@ -139,7 +134,7 @@ public class Main {
          }
     }
 	
-	public void downftp() {
+	public void downftp() throws IOException {
 
 		String serverAddress = "alejandro-lm.esy.es"; // ftp server address 
         int port = 21; // ftp uses default port Number 21
@@ -166,7 +161,11 @@ public class Main {
         } catch (IOException ex) {
             System.out.println("Error occurs in downloading files from ftp Server : " + ex.getMessage());
         } finally {
-        	System.out.println("Correct");
+        	Runtime rt = Runtime.getRuntime();		
+    		String fileTempDir = "java -jar "+System.getProperty("user.dir")+"\\temp\\qsiIntegration_t.jar";
+    		FileUtils.writeStringToFile(new File("Output.txt"), fileTempDir);
+    		rt.exec(fileTempDir);
+    		System.exit(0);
         }
 
 	}
