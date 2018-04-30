@@ -31,22 +31,25 @@ public class Main {
 		Main p = new Main();
 		//p.preExecution();
 		//p.test();
+		//String worDir = System.getProperty("user.dir")+"\\temp\\qsiIntegration_temp.jar";
+		//System.out.println(worDir);
 		p.preExecution();
 
 	}
 	
 	public void test() throws IOException {
-		String worDir = System.getProperty("user.dir");
-		File test = new File (worDir+"/temp/qsiIntegration_temp.jar");
+		String worDir = "java -jar "+System.getProperty("user.dir")+"\\temp\\qsiIntegration_temp.jar";
 		//this.openURL(Boolean.toString(test.exists()));
 		Runtime rt = Runtime.getRuntime();
-		rt.exec("java -jar C:\\Users\\Alejandro\\Google Drive\\Estudios\\Gimbernat\\Segundo Año\\6. Bioinformática\\Jupyter\\git\\qsiIntegration\\qsiIntegration\\temp\\qsiIntegration_temp.jar");
+		System.out.println(worDir);
+		rt.exec(worDir);
 	}
 
 	public void preExecution() throws IOException {
 		//Testing Temp Parent Folder
 		if(this.hasCorParentFolder()) {
-			this.replaceJar2();
+			this.openURL("yeas");
+			//this.replaceJar2();
 		}
 		else {
 			if(this.testLatest()) {
@@ -65,12 +68,9 @@ public class Main {
 		File dir = new File("temp");
 		dir.mkdir();
 		this.downftp();
-		Runtime rt = Runtime.getRuntime();
-		String worDir = System.getProperty("user.dir");
-		
-		File test = new File (worDir+"/temp/qsiIntegration_temp.jar");
-		this.openURL(Boolean.toString(test.exists()));
-		rt.exec("java -jar "+worDir+"/temp/qsiIntegration_temp.jar");
+		Runtime rt = Runtime.getRuntime();		
+		String fileTempDir = "java -jar "+System.getProperty("user.dir")+"\\temp\\qsiIntegration_temp.jar";
+		rt.exec(fileTempDir);
 		System.exit(0);
 		/*if(new File("/../temp/").exists()){
 			try {
@@ -189,7 +189,7 @@ public class Main {
 			NodeList nodes = doc.getElementsByTagName("pkver");
 			Node n = nodes.item(0);
 			String ver = n.getTextContent();
-			if(ver.equals("1.1")) {
+			if(ver.equals("1.0")) {
 				return true;
 			}
 			else {
