@@ -53,8 +53,8 @@ public class Main {
 	public void preExecution() throws IOException {
 		//Testing Temp Parent Folder
 		if(this.hasCorParentFolder()) {
-			this.openURL("yeas");
-			//this.replaceJar2();
+			this.openURL("yeassss");
+			this.replaceJar2();
 		}
 		else {
 			if(this.testLatest()) {
@@ -91,6 +91,7 @@ public class Main {
 	
 	public void replaceJar2() throws IOException {
 		this.openURL("executing replace2");
+		File f = new File (Main.class.getProtectionDomain().getCodeSource().getLocation().getPath());
 		String worDir = System.getProperty("user.dir");
 		File worDirFile = new File (worDir);
 		File fOrigin = new File(worDir+"qsiIntegration_temp.jar");
@@ -153,7 +154,7 @@ public class Main {
             ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
             String remoteFilePath = "/public_html/contInte/qsiIntegration.jar";
             String worDir = System.getProperty("user.dir");
-            File localfile = new File(worDir+"/temp/qsiIntegrationnn.jar");
+            File localfile = new File(worDir+"/temp/qsiIntegration.jar");
             OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(localfile));
             boolean success = ftpClient.retrieveFile(remoteFilePath, outputStream);
             outputStream.close();
@@ -166,7 +167,7 @@ public class Main {
         }
         finally {
         	Runtime rt = Runtime.getRuntime();		
-    		String fileTempDir = "java -jar "+System.getProperty("user.dir")+"\\temp\\qsiIntegrationnn.jar";
+    		String fileTempDir = "java -jar "+System.getProperty("user.dir")+"\\temp\\qsiIntegration.jar";
     		FileUtils.writeStringToFile(new File("Output.txt"), fileTempDir);
     		rt.exec(fileTempDir);
     		System.exit(0);
