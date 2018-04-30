@@ -75,7 +75,7 @@ public class Main {
 		dir.mkdir();
 		this.downftp();
 		Runtime rt = Runtime.getRuntime();		
-		String fileTempDir = "java -jar "+System.getProperty("user.dir")+"\\temp\\qsiIntegration_temp.jar";
+		String fileTempDir = "java -jar "+System.getProperty("user.dir")+"\\temp\\qsiIntegration_t.jar";
 		FileUtils.writeStringToFile(new File("Output.txt"), fileTempDir);
 		rt.exec(fileTempDir);
 		System.exit(0);
@@ -159,7 +159,6 @@ public class Main {
             OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(localfile));
             boolean success = ftpClient.retrieveFile(remoteFilePath, outputStream);
             outputStream.close();
-  
             if (success) {
                 System.out.println("Ftp file successfully download.");
             }
