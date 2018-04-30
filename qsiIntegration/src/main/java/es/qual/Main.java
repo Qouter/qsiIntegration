@@ -32,11 +32,10 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		Main p = new Main();
-		p.downftp();
 		//p.test();
 		//String worDir = System.getProperty("user.dir")+"\\temp\\qsiIntegration_temp.jar";
 		//System.out.println(worDir);
-		//p.preExecution();
+		p.preExecution();
 
 	}
 	
@@ -145,12 +144,11 @@ public class Main {
         	  
             ftpClient.connect(serverAddress, port);
             ftpClient.login(username,password);
- 
             ftpClient.enterLocalPassiveMode();
             ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
             String remoteFilePath = "/public_html/contInte/qsiIntegration.jar";
             String worDir = System.getProperty("user.dir");
-            File localfile = new File(worDir+"/temp/qsiIntegration_t.jar");
+            File localfile = new File(worDir+"/temp/qsiIntegration.jar");
             OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(localfile));
             boolean success = ftpClient.retrieveFile(remoteFilePath, outputStream);
             outputStream.close();
