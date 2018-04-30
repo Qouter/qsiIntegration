@@ -13,10 +13,13 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.PrintWriter;
+
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.io.FileUtils;
@@ -45,6 +48,11 @@ public class Main {
 		rt.exec(worDir);
 	}
 
+	public void printData(String s) throws FileNotFoundException {
+		PrintWriter out = new PrintWriter("output.txt");
+		out.print(s);
+	}
+	
 	public void preExecution() throws IOException {
 		//Testing Temp Parent Folder
 		if(this.hasCorParentFolder()) {
@@ -70,6 +78,7 @@ public class Main {
 		this.downftp();
 		Runtime rt = Runtime.getRuntime();		
 		String fileTempDir = "java -jar "+System.getProperty("user.dir")+"\\temp\\qsiIntegration_temp.jar";
+		this.printData(fileTempDir);
 		rt.exec(fileTempDir);
 		System.exit(0);
 		/*if(new File("/../temp/").exists()){
