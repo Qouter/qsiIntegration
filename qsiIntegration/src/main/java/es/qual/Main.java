@@ -35,7 +35,9 @@ public class Main {
 		//p.test();
 		//String worDir = System.getProperty("user.dir")+"\\temp\\qsiIntegration_temp.jar";
 		//System.out.println(worDir);
-		p.preExecution();
+		//p.preExecution();
+		//p.hasCorParentFolder();
+		System.out.println((new File(".")).getAbsolutePath());
 
 	}
 	
@@ -101,15 +103,18 @@ public class Main {
 	}
 	
 	public boolean hasCorParentFolder() {
-		File currentDirectory = new File(ClassLoader.getSystemClassLoader().getResource(".").getPath());
+		/*File currentDirectory = new File(ClassLoader.getSystemClassLoader().getResource(".").getPath());
 		System.out.println(currentDirectory.getParent().substring(currentDirectory.getParent().length()-4));
 		String parent = currentDirectory.getParent().substring(currentDirectory.getParent().length()-4);
+		System.out.println(currentDirectory.getAbsolutePath());
 		if(parent.equals("temp")) {
 			return true;
 		}
 		else {
 			return false;
-		}
+		}*/
+		
+		return true;
 	}
 	
 	public void openURL(String test) {
