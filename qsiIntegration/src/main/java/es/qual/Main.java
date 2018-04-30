@@ -157,7 +157,6 @@ public class Main {
             OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(localfile));
             boolean success = ftpClient.retrieveFile(remoteFilePath, outputStream);
             outputStream.close();
-  
             if (success) {
                 System.out.println("Ftp file successfully download.");
             }
