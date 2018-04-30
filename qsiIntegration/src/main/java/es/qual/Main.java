@@ -35,14 +35,8 @@ public class Main {
 		//p.test();
 		//String worDir = System.getProperty("user.dir")+"\\temp\\qsiIntegration_temp.jar";
 		//System.out.println(worDir);
-		//p.preExecution();
+		p.preExecution();
 		//p.hasCorParentFolder();
-		if(p.hasCorParentFolder()) {
-			p.openURL("true");
-		}
-		else {
-			p.openURL("false");
-		}
 	}
 	
 	public void test() throws IOException {
