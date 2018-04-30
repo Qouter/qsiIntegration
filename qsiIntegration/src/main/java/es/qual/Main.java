@@ -53,7 +53,7 @@ public class Main {
 		}
 		else {
 			if(this.testLatest()) {
-				this.openURL("isTheLatest1.2");
+				this.openURL("isTheLatest1.3");
 			}
 			else {
 				this.replaceJar1();
@@ -188,7 +188,7 @@ public class Main {
 			NodeList nodes = doc.getElementsByTagName("pkver");
 			Node n = nodes.item(0);
 			String ver = n.getTextContent();
-			if(ver.equals("1.2")) {
+			if(ver.equals("1.3")) {
 				return true;
 			}
 			else {
