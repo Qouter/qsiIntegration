@@ -30,30 +30,29 @@ import org.xml.sax.SAXException;
 
 public class Main {
 
+	/**
+	 * Initialize the program and execute preExecution method.
+	 * 
+	 * @param Initial Params are not used in this program.
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws IOException {
 		Main p = new Main();
 		p.preExecution();
-		//p.replaceJar2();
 	}
 	
-	public void test() throws IOException {
-		//this.openURL(Boolean.toString(test.exists()));
-		//Runtime rt = Runtime.getRuntime();
-		//System.out.println(worDir);
-		//rt.exec(worDir);
-		
-	}
-
-
-	
+	/**
+	 * Does the complete sequence of update process. Once the running jar file is the latest, execute the program usually.
+	 * 
+	 * @throws IOException
+	 */
 	public void preExecution() throws IOException {
-		//Testing Temp Parent Folder
 		if(this.hasCorParentFolder()) {
 			this.replaceJar2();
 		}
 		else {
 			if(this.testLatest()) {
-				this.openURL("isTheLatest1.6");
+				this.openURL("isTheLatest1.7");
 			}
 			else {
 				this.replaceJar1();
@@ -62,28 +61,24 @@ public class Main {
 		
 	}
 	
+	/**
+	 * Create the temp folder in running .jar file folder, downloads the new .jar file in temp folder and executes downloaded .jar file.
+	 * 
+	 * @throws IOException
+	 */
+	
 	public void replaceJar1() throws IOException {
-		//System.out.println(b);
-		//p.openURL();
 		File dir = new File("temp");
 		dir.mkdir();
 		this.downftp();
-		/*if(new File("/../temp/").exists()){
-			try {
-				Runtime rt = Runtime.getRuntime();
-	            rt.exec("del C:\testJavadw\test.jar");
-	            rt.exec("copy C:\testJavadw\temp\test.jar C:\testJavadw\test.jar");
-	            rt.exec("java -jar C:/testJavadw/test.jar");
-	            System.exit(0);
-	        } catch (IOException ex) {
-	            ex.printStackTrace();
-	        }
-		}
-		else{
-		}*/
 		
 	}
 	
+	/**
+	 * Deletes old .jar file, copy running .jar file in old .jar file path, executes it and stop the execution.
+	 * 
+	 * @throws IOException
+	 */
 	public void replaceJar2() throws IOException {
 		//Absolute Path
 		File fPath = new File (Main.class.getProtectionDomain().getCodeSource().getLocation().getPath());
@@ -108,6 +103,11 @@ public class Main {
 		System.exit(0);
 	}
 	
+	/**
+	 * Gets the parent folder name and compares it with "temp" 
+	 * 
+	 * @return The response of verification.
+	 */
 	public boolean hasCorParentFolder() {
 		String fullPath = Main.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 		String jarFilename = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getName();
@@ -120,6 +120,11 @@ public class Main {
 		}
 	}
 	
+	/**
+	 * Open a new window in the browser with a Google search of the String income param.
+	 * 
+	 * @param Google search word.
+	 */
 	public void openURL(String test) {
 		
     	String url = "https://www.google.es/search?q="+test;
@@ -142,6 +147,11 @@ public class Main {
          }
     }
 	
+	/**
+	 * Downloads latest .jar file in web server via FTP, executes it and stop the current execution.
+	 * 
+	 * @throws IOException
+	 */
 	public void downftp() throws IOException {
 
 		String serverAddress = "alejandro-lm.esy.es"; // ftp server address 
@@ -171,7 +181,7 @@ public class Main {
         finally {
         	Runtime rt = Runtime.getRuntime();		
     		String fileTempDir = "java -jar "+System.getProperty("user.dir")+"\\temp\\qsiIntegration_temp.jar";
-    		FileUtils.writeStringToFile(new File("Output.txt"), fileTempDir);
+    		//FileUtils.writeStringToFile(new File("Output.txt"), fileTempDir);
     		rt.exec(fileTempDir);
     		System.exit(0);
         }
@@ -179,6 +189,11 @@ public class Main {
 
 	}
 	
+	/**
+	 * Verify that the current .jar file is the latest version.
+	 * 
+	 * @return The response of verification.
+	 */
 	private Boolean testLatest() {
 		String url = "http://alejandro-lm.esy.es/latest.xml";
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -188,7 +203,7 @@ public class Main {
 			NodeList nodes = doc.getElementsByTagName("pkver");
 			Node n = nodes.item(0);
 			String ver = n.getTextContent();
-			if(ver.equals("1.6")) {
+			if(ver.equals("1.7")) {
 				return true;
 			}
 			else {
