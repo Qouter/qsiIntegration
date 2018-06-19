@@ -52,12 +52,16 @@ public class Main {
 		}
 		else {
 			if(this.testLatest()) {
-				this.openURL("isTheLatest1.7");
+				this.openURL("isTheLatest1.8");
 			}
 			else {
 				this.replaceJar1();
 			}
 		}
+		
+	}
+	
+	public void deleteTempFolder() {
 		
 	}
 	
